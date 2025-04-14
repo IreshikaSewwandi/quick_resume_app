@@ -45,7 +45,7 @@ export default function ExamplesPage() {
       title: "Data Analyst",
       description:
         "Detail-oriented resume for data professionals highlighting analytical skills and quantifiable achievements.",
-      image: "./data-analyst.png?height=400&width=300",
+      image: "./Data-Analyst.png?height=400&width=300",
     },
     {
       id: "healthcare-professional",
