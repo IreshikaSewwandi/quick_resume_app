@@ -35,7 +35,6 @@ export default function Dashboard() {
   const isFree = subscription?.tier === "free"
   const cvLimit = isFree ? 2 : Number.POSITIVE_INFINITY
   const cvCount = subscription?.cvCount || 0
-  const cvRemaining = Math.max(0, cvLimit - cvCount)
   const cvPercentage = isFree ? (cvCount / cvLimit) * 100 : 100
 
   return (
@@ -54,7 +53,7 @@ export default function Dashboard() {
         <CardHeader>
           <CardTitle>Subscription Status</CardTitle>
           <CardDescription>
-            {isFree ? "You're currently on the Free plan" : `You're on the Pro ${subscription?.period} plan`}
+            {isFree ? "You&apos;re currently on the Free plan" : `You&apos;re on the Pro ${subscription?.period} plan`}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -73,7 +72,7 @@ export default function Dashboard() {
               <div className="bg-amber-50 dark:bg-amber-900/20 text-amber-800 dark:text-amber-200 p-3 rounded-md flex items-start">
                 <AlertTriangle className="h-5 w-5 mr-2 shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-medium">You've reached your free plan limit</p>
+                  <p className="font-medium">You&apos;ve reached your free plan limit</p>
                   <p className="text-sm mt-1">Upgrade to Pro for unlimited resumes and premium features.</p>
                 </div>
               </div>
@@ -109,7 +108,7 @@ export default function Dashboard() {
             </div>
             <h3 className="text-xl font-semibold mb-2">No resumes yet</h3>
             <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
-              You haven't created any resumes yet. Start building your professional resume now.
+              You haven&apos;t created any resumes yet. Start building your professional resume now.
             </p>
             <Button asChild disabled={!canCreateCV}>
               <Link href={canCreateCV ? "/builder" : "/pricing"}>
