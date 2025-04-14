@@ -1,10 +1,17 @@
-import { Card, CardContent } from "../../components/ui/card"
-import { Button } from "../../components/ui/button"
-import Image from "next/image"
-import Link from "next/link"
+import { Card, CardContent } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+
+interface Example {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+}
 
 export default function ExamplesPage() {
-  const examples = [
+  const examples: Example[] = [
     {
       id: "software-engineer",
       title: "Software Engineer",
@@ -47,11 +54,11 @@ export default function ExamplesPage() {
         "Organized resume for healthcare workers emphasizing certifications, patient care, and medical expertise.",
       image: "/placeholder.svg?height=400&width=300",
     },
-  ]
+  ];
 
   return (
     <div className="container py-8">
-      <div className="max-w-3xl mx-auto mb-8">
+      <div className="max-w-3xl mx-auto mb-8 text-center">
         <h1 className="text-3xl font-bold mb-4">Resume Examples</h1>
         <p className="text-gray-500 dark:text-gray-400">
           Browse through our collection of professionally crafted resume examples for different industries and career
@@ -61,13 +68,21 @@ export default function ExamplesPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {examples.map((example) => (
-          <Card key={example.id} className="overflow-hidden flex flex-col">
+          <Card key={example.id} className="overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
             <div className="relative aspect-[3/4] w-full">
-              <Image src={example.image || "/placeholder.svg"} alt={example.title} fill className="object-cover" />
+              <Image 
+                src={example.image} 
+                alt={example.title} 
+                fill 
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </div>
             <CardContent className="flex flex-col flex-grow p-5">
               <h3 className="text-xl font-semibold mb-2">{example.title}</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 flex-grow">{example.description}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 flex-grow">
+                {example.description}
+              </p>
               <div className="flex gap-2 mt-auto">
                 <Button asChild className="flex-1">
                   <Link href={`/builder?template=${example.id}`}>Use This Format</Link>
@@ -92,5 +107,5 @@ export default function ExamplesPage() {
         </Button>
       </div>
     </div>
-  )
+  );
 }
