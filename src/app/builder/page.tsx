@@ -49,7 +49,7 @@ export default function BuilderPage() {
     if (user && !canCreateCV && isNewResume) {
       setToast({
         show: true,
-        message: "You've reached your free plan limit. Upgrade to Pro for unlimited resumes.",
+        message: "You&apos;ve reached your free plan limit. Upgrade to Pro for unlimited resumes.",
         type: "error",
       })
 
@@ -60,7 +60,10 @@ export default function BuilderPage() {
     }
   }, [user, canCreateCV, isNewResume, router])
 
-  const updateResumeData = (section: keyof ResumeData, data: any) => {
+  const updateResumeData = <K extends keyof ResumeData>(
+    section: K,
+    data: ResumeData[K]
+  ) => {
     setResumeData((prev) => ({
       ...prev,
       [section]: data,
@@ -260,8 +263,7 @@ export default function BuilderPage() {
             </div>
             <h2 className="text-2xl font-bold mb-2">Resume Limit Reached</h2>
             <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
-              You've reached the limit of 2 resumes on your free plan. Upgrade to Pro for unlimited resumes and premium
-              features.
+              {"You've reached the limit of 2 resumes on your free plan. Upgrade to Pro for unlimited resumes and premium features."}
             </p>
             <Button asChild size="lg">
               <Link href="/pricing">Upgrade to Pro</Link>
