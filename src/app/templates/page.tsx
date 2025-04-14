@@ -9,37 +9,37 @@ export default function TemplatesPage() {
       id: "classic",
       name: "Classic",
       description: "A traditional resume layout with a clean, professional look.",
-      image: "/placeholder.svg?height=400&width=300",
+      image: "./photo1.png?height=400&width=300",
     },
     {
       id: "modern",
       name: "Modern",
       description: "A contemporary design with a fresh, creative approach.",
-      image: "/placeholder.svg?height=400&width=300",
+      image: "./photo4.png?height=400&width=300",
     },
     {
       id: "minimal",
       name: "Minimal",
       description: "A simple, elegant design that focuses on content.",
-      image: "/placeholder.svg?height=400&width=300",
+      image: "./photo3.png?height=400&width=300",
     },
     {
       id: "creative",
       name: "Creative",
       description: "A bold design for those who want to stand out.",
-      image: "/placeholder.svg?height=400&width=300",
+      image: "./photo5.png?height=400&width=300",
     },
     {
       id: "professional",
       name: "Professional",
       description: "A sophisticated layout for executive and senior positions.",
-      image: "/placeholder.svg?height=400&width=300",
+      image: "./photo2.png?height=400&width=300",
     },
     {
       id: "academic",
       name: "Academic",
       description: "Designed for academic and research positions.",
-      image: "/placeholder.svg?height=400&width=300",
+      image: "./photo6.png?height=400&width=300",
     },
   ]
 
