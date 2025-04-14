@@ -4,9 +4,36 @@ import { ArrowLeft } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
+interface ExampleData {
+  title: string
+  name: string
+  description: string
+  image: string
+  highlights: string[]
+  skills: string[]
+  experience: {
+    title: string
+    company: string
+    period: string
+    description: string
+    image?: string
+  }[]
+  education: {
+    degree: string
+    school: string
+    year: string
+  }
+}
+
+interface PageProps {
+  params: {
+    id: string
+  }
+}
+
 // This would typically come from a database or API
-const getExampleData = (id: string) => {
-  const examples = {
+const getExampleData = (id: string): ExampleData => {
+  const examples: Record<string, ExampleData> = {
     "software-engineer": {
       title: "Software Engineer",
       name: "Alex Johnson",
@@ -84,7 +111,6 @@ const getExampleData = (id: string) => {
         year: "2017",
       },
     },
-    // Add more examples as needed
     default: {
       title: "Example Resume",
       name: "Sample Name",
@@ -110,7 +136,6 @@ const getExampleData = (id: string) => {
           company: "Previous Company",
           period: "2017 - 2020",
           description: "Developed key skills and contributed to team success through various projects.",
-   
         },
       ],
       education: {
@@ -121,10 +146,10 @@ const getExampleData = (id: string) => {
     },
   }
 
-  return examples[id as keyof typeof examples] || examples.default
+  return examples[id] || examples.default
 }
 
-export default function ExampleDetailPage({ params }: { params: { id: string } }) {
+export default function ExampleDetailPage({ params }: PageProps) {
   const example = getExampleData(params.id)
 
   return (
@@ -226,4 +251,3 @@ export default function ExampleDetailPage({ params }: { params: { id: string } }
     </div>
   )
 }
-
