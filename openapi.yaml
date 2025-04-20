@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Quick Resume App API
+  version: 1.0.0
+  description: REST API for resume generation
+paths:
+  /api/resume:
+    post:
+      summary: Generate a resume
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResumeData'
+      responses:
+        '200':
+          description: PDF resume generated
+          content:
+            application/pdf: {}
+components:
+  schemas:
+    ResumeData:
+      type: object
+      properties:
+        name: { type: string }
+        education: { type: array }
+        experience: { type: array }
