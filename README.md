@@ -1,3 +1,7 @@
+# 🧾 quick_resume_app
+
+The **Quick Resume App** is a Flutter-based mobile application designed to help users create professional resumes quickly. It offers customizable templates, easy data input, and export options (PDF/DOCX). Ideal for job seekers, it simplifies resume building with a user-friendly interface.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -20,17 +24,80 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 🚀 Enhanced Features for Quick Resume SaaS Dashboard
 
-To learn more about Next.js, take a look at the following resources:
+<table class="min-w-full text-sm text-left text-gray-700">
+        <thead class="text-xs uppercase bg-gray-100 text-gray-600">
+          <tr>
+            <th scope="col" class="px-6 py-3">Feature</th>
+            <th scope="col" class="px-6 py-3">Implementation for Resume App</th>
+            <th scope="col" class="px-6 py-3">DevOps Integration</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="px-6 py-4">✅ Add/Delete Resumes</td>
+            <td class="px-6 py-4">Form-based UI with validation</td>
+            <td class="px-6 py-4">Automated testing in CI/CD</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">🎯 Filter Resumes</td>
+            <td class="px-6 py-4">By template, date, or status</td>
+            <td class="px-6 py-4">Firestore queries with indexing</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">🔔 Notifications</td>
+            <td class="px-6 py-4">Email when resume is downloaded</td>
+            <td class="px-6 py-4">Firebase Cloud Messaging</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">💾 Backup/Restore</td>
+            <td class="px-6 py-4">JSON/PDF backup to Google Drive</td>
+            <td class="px-6 py-4">Automated daily Cloud Scheduler jobs</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">📄 PDF Reports</td>
+            <td class="px-6 py-4">User analytics (e.g., "10 resumes generated this week")</td>
+            <td class="px-6 py-4">Puppeteer in GitHub Actions</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">⚙️ CI/CD</td>
+            <td class="px-6 py-4">Auto-deploy Flutter web to Firebase Hosting</td>
+            <td class="px-6 py-4">GitHub Actions with Firebase CLI</td>
+          </tr>
+          <tr>
+            <td class="px-6 py-4">🌐 Deployment</td>
+            <td class="px-6 py-4">Multi-region (Firebase Hosting + CDN)</td>
+            <td class="px-6 py-4">Terraform for infra-as-code</td>
+          </tr>
+        </tbody>
+      </table
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Upgraded Tech Stack
 
-## Deploy on Vercel
+* Frontend: Next.js
+* Build & Deploy: GitHub Actions (CI/CD)
+* Storage: Browser localStorage (No backend)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📦 Installation (With DevOps Setup)
+**1. Clone repository**
+<code> git clone https://github.com/IreshikaSewwandi/quick_resume_app.git </code>
+
+
+## 🚀 Live Demo
+
+You can try out the Quick Resume App live here:
+
+🔗 [GitHub Pages Live Demo](https://ireshikasewwandi.github.io/quick_resume_app/)
+
+
+## 🗂️ Project Repo
+
+🔗 [GitHub Repository](https://github.com/IreshikaSewwandi/quick_resume_app.git)
+
+---
+
+
