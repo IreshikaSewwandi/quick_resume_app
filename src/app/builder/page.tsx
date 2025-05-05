@@ -29,6 +29,7 @@ export default function BuilderPage() {
       title: "",
       summary: "",
       profileImage: "",
+      linkedin: "",
     },
     experience: [],
     education: [],

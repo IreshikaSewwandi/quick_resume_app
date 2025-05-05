@@ -82,9 +82,9 @@ export function ResumePreview({ data }: ResumePreviewProps) {
                 softSkills.map((skill) => <li key={skill.id}>• {skill.name}</li>)
               ) : (
                 <>
-                  <li>• Visionary Leadership</li>
-                  <li>• Adaptability</li>
-                  <li>• Integrity</li>
+                  <li> Visionary Leadership</li>
+                  <li> Adaptability</li>
+                  <li> Integrity</li>
                 </>
               )}
             </ul>
@@ -98,10 +98,10 @@ export function ResumePreview({ data }: ResumePreviewProps) {
                 hardSkills.map((skill) => <li key={skill.id}>• {skill.name}</li>)
               ) : (
                 <>
-                  <li>• Salesforce CRM</li>
-                  <li>• SAP ERP</li>
-                  <li>• Tableau</li>
-                  <li>• Azure</li>
+                  <li> Salesforce CRM</li>
+                  <li> SAP ERP</li>
+                  <li> Tableau</li>
+                  <li> Azure</li>
                 </>
               )}
             </ul>
