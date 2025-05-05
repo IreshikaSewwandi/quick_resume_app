@@ -61,7 +61,7 @@ export default function BuilderPage() {
     }
   }, [user, canCreateCV, isNewResume, router])
 
-  const updateResumeData = (section: keyof ResumeData, data: any) => {
+  const updateResumeData = (section: keyof ResumeData, data: unknown) => {
     setResumeData((prev) => ({
       ...prev,
       [section]: data,
@@ -297,8 +297,8 @@ export default function BuilderPage() {
             </div>
             <h2 className="text-2xl font-bold mb-2">Resume Limit Reached</h2>
             <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
-              You've reached the limit of 2 resumes on your free plan. Upgrade to Pro for unlimited resumes and premium
-              features.
+              You&apos;ve reached the limit of 2 resumes on your free plan. Upgrade to Pro for unlimited resumes and
+              premium features.
             </p>
             <Button asChild size="lg">
               <Link href="/pricing">Upgrade to Pro</Link>

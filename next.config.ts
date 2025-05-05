@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Either remove the output: 'export' line if you want to use server features
-  // OR keep output: 'export' and add the images.unoptimized setting:
   output: 'export',
   eslint: {
+    // This will ignore ESLint errors during builds
     ignoreDuringBuilds: true,
   },
   typescript: {
+    // This will ignore TypeScript errors during builds
     ignoreBuildErrors: true,
   },
   images: {
@@ -14,7 +14,8 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig;
+export default nextConfig
+
 
 /*import type { NextConfig } from "next";
 
