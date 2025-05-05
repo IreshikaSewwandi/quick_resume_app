@@ -1,17 +1,17 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "../../components/ui/button"
-import { Card, CardContent } from "../../components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs"
-import { PersonalInfoForm } from "../../components/personal-info-form"
-import { ExperienceForm } from "../../components/experience-form"
-import { EducationForm } from "../../components/education-form"
-import { SkillsForm } from "../../components/skills-form"
-import { ResumePreview } from "../../components/resume-preview"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { PersonalInfoForm } from "@/components/personal-info-form"
+import { ExperienceForm } from "@/components/experience-form"
+import { EducationForm } from "@/components/education-form"
+import { SkillsForm } from "@/components/skills-form"
+import { ResumePreview } from "@/components/resume-preview"
 import { Download, Eye, Save, Lock } from "lucide-react"
 import type { ResumeData } from "../../../types/resume"
-import { SimpleToast } from "../../components/ui/simple-toast"
+import { SimpleToast } from "@/components/ui/simple-toast"
 import { useAuth } from "../../../providers/auth-provider"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
@@ -28,6 +28,7 @@ export default function BuilderPage() {
       address: "",
       title: "",
       summary: "",
+      profileImage: "",
     },
     experience: [],
     education: [],
@@ -49,7 +50,7 @@ export default function BuilderPage() {
     if (user && !canCreateCV && isNewResume) {
       setToast({
         show: true,
-        message: "You&apos;ve reached your free plan limit. Upgrade to Pro for unlimited resumes.",
+        message: "You've reached your free plan limit. Upgrade to Pro for unlimited resumes.",
         type: "error",
       })
 
@@ -60,10 +61,7 @@ export default function BuilderPage() {
     }
   }, [user, canCreateCV, isNewResume, router])
 
-  const updateResumeData = <K extends keyof ResumeData>(
-    section: K,
-    data: ResumeData[K]
-  ) => {
+  const updateResumeData = (section: keyof ResumeData, data: any) => {
     setResumeData((prev) => ({
       ...prev,
       [section]: data,
@@ -153,8 +151,26 @@ export default function BuilderPage() {
         .text-gray-500 { color: #6b7280; }
         .text-gray-600 { color: #4b5563; }
         .ml-1 { margin-left: 0.25rem; }
+        .flex-col { flex-direction: column; }
+        .md\\:flex-row { flex-direction: row; }
+        .items-center { align-items: center; }
+        .md\\:mr-6 { margin-right: 1.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .md\\:mb-0 { margin-bottom: 0; }
+        .w-24 { width: 6rem; }
+        .h-24 { height: 6rem; }
+        .rounded-full { border-radius: 9999px; }
+        .overflow-hidden { overflow: hidden; }
+        .border-2 { border-width: 2px; }
+        .border-gray-200 { border-color: #e5e7eb; }
+        .object-cover { object-fit: cover; }
+        .md\\:text-left { text-align: left; }
+        .flex-1 { flex: 1 1 0%; }
+        .md\\:justify-start { justify-content: flex-start; }
       `)
       previewWindow.document.write("</style></head><body>")
+
+      // Just use the innerHTML directly instead of cloning and manipulating
       previewWindow.document.write(resumeContent.innerHTML)
       previewWindow.document.write("</body></html>")
       previewWindow.document.close()
@@ -223,11 +239,29 @@ export default function BuilderPage() {
         .text-gray-500 { color: #6b7280; }
         .text-gray-600 { color: #4b5563; }
         .ml-1 { margin-left: 0.25rem; }
+        .flex-col { flex-direction: column; }
+        .md\\:flex-row { flex-direction: row; }
+        .items-center { align-items: center; }
+        .md\\:mr-6 { margin-right: 1.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .md\\:mb-0 { margin-bottom: 0; }
+        .w-24 { width: 6rem; }
+        .h-24 { height: 6rem; }
+        .rounded-full { border-radius: 9999px; }
+        .overflow-hidden { overflow: hidden; }
+        .border-2 { border-width: 2px; }
+        .border-gray-200 { border-color: #e5e7eb; }
+        .object-cover { object-fit: cover; }
+        .md\\:text-left { text-align: left; }
+        .flex-1 { flex: 1 1 0%; }
+        .md\\:justify-start { justify-content: flex-start; }
         @media print {
           body { -webkit-print-color-adjust: exact; }
         }
       `)
       printWindow.document.write("</style></head><body>")
+
+      // Just use the innerHTML directly instead of cloning and manipulating
       printWindow.document.write(resumeContent.innerHTML)
       printWindow.document.write("</body></html>")
       printWindow.document.close()
@@ -263,7 +297,8 @@ export default function BuilderPage() {
             </div>
             <h2 className="text-2xl font-bold mb-2">Resume Limit Reached</h2>
             <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-md mx-auto">
-              {"You've reached the limit of 2 resumes on your free plan. Upgrade to Pro for unlimited resumes and premium features."}
+              You've reached the limit of 2 resumes on your free plan. Upgrade to Pro for unlimited resumes and premium
+              features.
             </p>
             <Button asChild size="lg">
               <Link href="/pricing">Upgrade to Pro</Link>

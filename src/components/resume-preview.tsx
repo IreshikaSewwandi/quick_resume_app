@@ -1,6 +1,7 @@
 "use client"
 
 import type { ResumeData } from "../../types/resume"
+import Image from "next/image"
 
 interface ResumePreviewProps {
   data: ResumeData
@@ -12,14 +13,32 @@ export function ResumePreview({ data }: ResumePreviewProps) {
   return (
     <div id="resume-preview-content" className="p-8 max-w-[800px] mx-auto font-sans">
       {/* Header */}
-      <div className="mb-6 text-center">
-        <h1 className="text-2xl font-bold mb-1">{personalInfo.name || "Your Name"}</h1>
-        {personalInfo.title && <p className="text-gray-600 dark:text-gray-400 mb-2">{personalInfo.title}</p>}
+      <div className="mb-6 flex flex-col md:flex-row items-center">
+        {/* Profile Image */}
+        {personalInfo.profileImage && (
+          <div className="mb-4 md:mb-0 md:mr-6">
+            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-200">
+              <Image
+                src={personalInfo.profileImage || "/placeholder.svg"}
+                alt={personalInfo.name || "Profile"}
+                width={96}
+                height={96}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        )}
 
-        <div className="flex flex-wrap justify-center gap-x-4 text-sm">
-          {personalInfo.email && <span>{personalInfo.email}</span>}
-          {personalInfo.phone && <span>{personalInfo.phone}</span>}
-          {personalInfo.address && <span>{personalInfo.address}</span>}
+        {/* Name and Contact Info */}
+        <div className={`text-center ${personalInfo.profileImage ? "md:text-left" : ""} flex-1`}>
+          <h1 className="text-2xl font-bold mb-1">{personalInfo.name || "Your Name"}</h1>
+          {personalInfo.title && <p className="text-gray-600 dark:text-gray-400 mb-2">{personalInfo.title}</p>}
+
+          <div className="flex flex-wrap justify-center md:justify-start gap-x-4 text-sm">
+            {personalInfo.email && <span>{personalInfo.email}</span>}
+            {personalInfo.phone && <span>{personalInfo.phone}</span>}
+            {personalInfo.address && <span>{personalInfo.address}</span>}
+          </div>
         </div>
       </div>
 
@@ -115,4 +134,3 @@ export function ResumePreview({ data }: ResumePreviewProps) {
     </div>
   )
 }
-
