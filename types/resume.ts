@@ -3,6 +3,7 @@ export interface PersonalInfo {
   email: string
   phone: string
   address: string
+  linkedin: string
   title: string
   summary: string
   profileImage?: string

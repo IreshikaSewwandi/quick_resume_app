@@ -129,6 +129,17 @@ export function PersonalInfoForm({ data, updateData }: PersonalInfoFormProps) {
           />
         </div>
         <div className="space-y-2">
+          <Label htmlFor="linkedin">linkedin</Label>
+          <Input
+            id="linkedin"
+            name="linkedin"
+            type="linkedin"
+            value={formData.linkedin}
+            onChange={handleChange}
+            placeholder="linkedin.com/in/your-name"
+          />
+        </div>
+        <div className="space-y-2">
           <Label htmlFor="phone">Phone</Label>
           <Input id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="(123) 456-7890" />
         </div>
